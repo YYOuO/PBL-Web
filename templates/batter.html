@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/pitcher">Pitcher</a>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/batter">Batter</a>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <h1>Batter</h1>
+    <div style="width: 200px;height:auto">
+        <form id="inputForm" method="POST" action="/submit">
+            <table class="table table-secondary table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Plate Appearances</th>
+                        <th scope="col">At Bats</th>
+                        <th scope="col">Hit</th>
+                        <th scope="col">Ground Out</th>
+                        <th scope="col">Fly Out</th>
+                        <th scope="col">Strike Out</th>
+                        <th scope="col">Base On Balls</th>
+                        <th scope="col">Run Batted In</th>
+                        <th scope="col">Single</th>
+                        <th scope="col">Double</th>
+                        <th scope="col">Triple</th>
+                        <th scope="col">Homerun</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" name="name_1" value="0"></td>
+                        <td><input type="number" name="PA_1" value="0"></td>
+                        <td><input type="number" name="AB_1" value="0"></td>
+                        <td><input type="number" name="Hit_1" value="0"></td>
+                        <td><input type="number" name="GO_1" value="0"></td>
+                        <td><input type="number" name="FO_1" value="0"></td>
+                        <td><input type="number" name="StrikeOut_1" value="0"></td>
+                        <td><input type="number" name="BaseOnBalls_1" value="0"></td>
+                        <td><input type="number" name="RBI_1" value="0"></td>
+                        <td><input type="number" name="Single_1" value="0"></td>
+                        <td><input type="number" name="Double_1" value="0"></td>
+                        <td><input type="number" name="Triple_1" value="0"></td>
+                        <td><input type="number" name="Homerun_1" value="0"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="name_2" value="0"></td>
+                        <td><input type="number" name="PA_2" value="0"></td>
+                        <td><input type="number" name="AB_2" value="0"></td>
+                        <td><input type="number" name="Hit_2" value="0"></td>
+                        <td><input type="number" name="GO_2" value="0"></td>
+                        <td><input type="number" name="FO_2" value="0"></td>
+                        <td><input type="number" name="StrikeOut_2" value="0"></td>
+                        <td><input type="number" name="BaseOnBalls_2" value="0"></td>
+                        <td><input type="number" name="RBI_2" value="0"></td>
+                        <td><input type="number" name="Single_2" value="0"></td>
+                        <td><input type="number" name="Double_2" value="0"></td>
+                        <td><input type="number" name="Triple_2" value="0"></td>
+                        <td><input type="number" name="Homerun_2" value="0"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="name_3" value="0"></td>
+                        <td><input type="number" name="PA_3" value="0"></td>
+                        <td><input type="number" name="AB_3" value="0"></td>
+                        <td><input type="number" name="Hit_3" value="0"></td>
+                        <td><input type="number" name="GO_3" value="0"></td>
+                        <td><input type="number" name="FO_3" value="0"></td>
+                        <td><input type="number" name="StrikeOut_3" value="0"></td>
+                        <td><input type="number" name="BaseOnBalls_3" value="0"></td>
+                        <td><input type="number" name="RBI_3" value="0"></td>
+                        <td><input type="number" name="Single_3" value="0"></td>
+                        <td><input type="number" name="Double_3" value="0"></td>
+                        <td><input type="number" name="Triple_3" value="0"></td>
+                        <td><input type="number" name="Homerun_3" value="0"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <button type="submit" class="btn btn-primary">Light</button>
+        </form>
+    </div>
+</body>
+<style>
+    .centered {
+        width: 300px;
+        /* 设置 div 的宽度 */
+        height: 200px;
+        /* 设置 div 的高度 */
+        background-color: #f0f0f0;
+        /* 设置 div 的背景颜色 */
+        margin: 0 auto;
+        /* 设置 margin 为 0 auto 来水平居中 */
+        text-align: center;
+        /* 设置文本居中 */
+        line-height: 200px;
+        /* 设置行高使文本垂直居中 */
+    }
+</style>
+
+</html>

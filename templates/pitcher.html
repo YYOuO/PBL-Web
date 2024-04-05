@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Grid</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/pitcher">Pitcher</a>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/batter">Batter</a>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <h1>Pitcher</h1>
+    <form id="inputForm" method="POST" action="/submit">
+        <table class="table table-secondary table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Innings</th>
+                    <th scope="col">Run</th>
+                    <th scope="col">Hit</th>
+                    <th scope="col">HomeRun</th>
+                    <th scope="col">Strike Out</th>
+                    <th scope="col">Base On Balls</th>
+                    <th scope="col">Win</th>
+                    <th scope="col">Lose</th>
+                    <th scope="col">Hold</th>
+                    <th scope="col">Save</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" name="name_1" class="form-control form-control-sm" value="0"></td>
+                    <td><input type="number" name="Innings_1" value="0"></td>
+                    <td><input type="number" name="Run_1" value="0"></td>
+                    <td><input type="number" name="Hit_1" value="0"></td>
+                    <td><input type="number" name="HomeRun_1" value="0"></td>
+                    <td><input type="number" name="StrikeOut_1" value="0"></td>
+                    <td><input type="number" name="BaseOnBalls_1" value="0"></td>
+                    <td><input type="number" name="Win_1" value="0"></td>
+                    <td><input type="number" name="Lose_1" value="0"></td>
+                    <td><input type="number" name="Hold_1" value="0"></td>
+                    <td><input type="number" name="Save_1" value="0"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="name_2" value="0"></td>
+                    <td><input type="number" name="Innings_2" value="0"></td>
+                    <td><input type="number" name="Run_2" value="0"></td>
+                    <td><input type="number" name="Hit_2" value="0"></td>
+                    <td><input type="number" name="HomeRun_2" value="0"></td>
+                    <td><input type="number" name="StrikeOut_2" value="0"></td>
+                    <td><input type="number" name="BaseOnBalls_2" value="0"></td>
+                    <td><input type="number" name="Win_2" value="0"></td>
+                    <td><input type="number" name="Lose_2" value="0"></td>
+                    <td><input type="number" name="Hold_2" value="0"></td>
+                    <td><input type="number" name="Save_2" value="0"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="name_3" value="0"></td>
+                    <td><input type="number" name="Innings_3" value="0"></td>
+                    <td><input type="number" name="Run_3" value="0"></td>
+                    <td><input type="number" name="Hit_3" value="0"></td>
+                    <td><input type="number" name="HomeRun_3" value="0"></td>
+                    <td><input type="number" name="StrikeOut_3" value="0"></td>
+                    <td><input type="number" name="BaseOnBalls_3" value="0"></td>
+                    <td><input type="number" name="Win_3" value="0"></td>
+                    <td><input type="number" name="Lose_3" value="0"></td>
+                    <td><input type="number" name="Hold_3" value="0"></td>
+                    <td><input type="number" name="Save_3" value="0"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button type="submit" class="btn btn-primary">Light</button>
+    </form>
+
+</body>
+
+</html>
