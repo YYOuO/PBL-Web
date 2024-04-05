@@ -9,7 +9,7 @@
         crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Input Grid</title>
+    <title>Pitcher</title>
 </head>
 
 <body>
@@ -52,45 +52,27 @@
                 </tr>
             </thead>
             <tbody>
+                {% for a in range(1,4) %}
                 <tr>
-                    <td><input type="text" name="name_1" class="form-control form-control-sm" value="0"></td>
-                    <td><input type="number" name="Innings_1" value="0"></td>
-                    <td><input type="number" name="Run_1" value="0"></td>
-                    <td><input type="number" name="Hit_1" value="0"></td>
-                    <td><input type="number" name="HomeRun_1" value="0"></td>
-                    <td><input type="number" name="StrikeOut_1" value="0"></td>
-                    <td><input type="number" name="BaseOnBalls_1" value="0"></td>
-                    <td><input type="number" name="Win_1" value="0"></td>
-                    <td><input type="number" name="Lose_1" value="0"></td>
-                    <td><input type="number" name="Hold_1" value="0"></td>
-                    <td><input type="number" name="Save_1" value="0"></td>
+                    <td><select id="userSelect" name="name_{{a}}">
+                            {% for user in user_list %}
+                            <option value="{{ user }}">{{ user }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                    <td><input type="number" name="Innings_{{a}}" value="0"></td>
+                    <td><input type="number" name="Run_{{a}}" value="0"></td>
+                    <td><input type="number" name="Hit_{{a}}" value="0"></td>
+                    <td><input type="number" name="HomeRun_{{a}}" value="0"></td>
+                    <td><input type="number" name="StrikeOut_{{a}}" value="0"></td>
+                    <td><input type="number" name="BaseOnBalls_{{a}}" value="0"></td>
+                    <td><input type="number" name="Win_{{a}}" value="0"></td>
+                    <td><input type="number" name="Lose_{{a}}" value="0"></td>
+                    <td><input type="number" name="Hold_{{a}}" value="0"></td>
+                    <td><input type="number" name="Save_{{a}}" value="0"></td>
                 </tr>
-                <tr>
-                    <td><input type="text" name="name_2" value="0"></td>
-                    <td><input type="number" name="Innings_2" value="0"></td>
-                    <td><input type="number" name="Run_2" value="0"></td>
-                    <td><input type="number" name="Hit_2" value="0"></td>
-                    <td><input type="number" name="HomeRun_2" value="0"></td>
-                    <td><input type="number" name="StrikeOut_2" value="0"></td>
-                    <td><input type="number" name="BaseOnBalls_2" value="0"></td>
-                    <td><input type="number" name="Win_2" value="0"></td>
-                    <td><input type="number" name="Lose_2" value="0"></td>
-                    <td><input type="number" name="Hold_2" value="0"></td>
-                    <td><input type="number" name="Save_2" value="0"></td>
-                </tr>
-                <tr>
-                    <td><input type="text" name="name_3" value="0"></td>
-                    <td><input type="number" name="Innings_3" value="0"></td>
-                    <td><input type="number" name="Run_3" value="0"></td>
-                    <td><input type="number" name="Hit_3" value="0"></td>
-                    <td><input type="number" name="HomeRun_3" value="0"></td>
-                    <td><input type="number" name="StrikeOut_3" value="0"></td>
-                    <td><input type="number" name="BaseOnBalls_3" value="0"></td>
-                    <td><input type="number" name="Win_3" value="0"></td>
-                    <td><input type="number" name="Lose_3" value="0"></td>
-                    <td><input type="number" name="Hold_3" value="0"></td>
-                    <td><input type="number" name="Save_3" value="0"></td>
-                </tr>
+                {% endfor %}
+
             </tbody>
         </table>
 

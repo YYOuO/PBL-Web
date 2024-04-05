@@ -41,3 +41,7 @@ class DataProcessing:
             self.worksheet.set_dataframe(dfff, "A1")
         elif typee == "pitcher":
             self.worksheet.set_dataframe(dfff, "A13")
+
+    def get_users(self):
+        user_list = self.df_pitcher["名字"].to_list()
+        return user_list[1:]

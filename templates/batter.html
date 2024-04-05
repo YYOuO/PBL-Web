@@ -9,7 +9,7 @@
         crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Batter</title>
 </head>
 
 <body>
@@ -55,51 +55,29 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {% for a in range(1,4) %}
                     <tr>
-                        <td><input type="text" name="name_1" value="0"></td>
-                        <td><input type="number" name="PA_1" value="0"></td>
-                        <td><input type="number" name="AB_1" value="0"></td>
-                        <td><input type="number" name="Hit_1" value="0"></td>
-                        <td><input type="number" name="GO_1" value="0"></td>
-                        <td><input type="number" name="FO_1" value="0"></td>
-                        <td><input type="number" name="StrikeOut_1" value="0"></td>
-                        <td><input type="number" name="BaseOnBalls_1" value="0"></td>
-                        <td><input type="number" name="RBI_1" value="0"></td>
-                        <td><input type="number" name="Single_1" value="0"></td>
-                        <td><input type="number" name="Double_1" value="0"></td>
-                        <td><input type="number" name="Triple_1" value="0"></td>
-                        <td><input type="number" name="Homerun_1" value="0"></td>
+                        <td><select id="userSelect" name="name_{{a}}">
+                                {% for user in user_list %}
+                                <option value="{{ user }}">{{ user }}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                        <td><input type="number" name="PA_{{a}}" value="0"></td>
+                        <td><input type="number" name="AB_{{a}}" value="0"></td>
+                        <td><input type="number" name="Hit_{{a}}" value="0"></td>
+                        <td><input type="number" name="GO_{{a}}" value="0"></td>
+                        <td><input type="number" name="FO_{{a}}" value="0"></td>
+                        <td><input type="number" name="StrikeOut_{{a}}" value="0"></td>
+                        <td><input type="number" name="BaseOnBalls_{{a}}" value="0"></td>
+                        <td><input type="number" name="RBI_{{a}}" value="0"></td>
+                        <td><input type="number" name="Single_{{a}}" value="0"></td>
+                        <td><input type="number" name="Double_{{a}}" value="0"></td>
+                        <td><input type="number" name="Triple_{{a}}" value="0"></td>
+                        <td><input type="number" name="Homerun_{{a}}" value="0"></td>
                     </tr>
-                    <tr>
-                        <td><input type="text" name="name_2" value="0"></td>
-                        <td><input type="number" name="PA_2" value="0"></td>
-                        <td><input type="number" name="AB_2" value="0"></td>
-                        <td><input type="number" name="Hit_2" value="0"></td>
-                        <td><input type="number" name="GO_2" value="0"></td>
-                        <td><input type="number" name="FO_2" value="0"></td>
-                        <td><input type="number" name="StrikeOut_2" value="0"></td>
-                        <td><input type="number" name="BaseOnBalls_2" value="0"></td>
-                        <td><input type="number" name="RBI_2" value="0"></td>
-                        <td><input type="number" name="Single_2" value="0"></td>
-                        <td><input type="number" name="Double_2" value="0"></td>
-                        <td><input type="number" name="Triple_2" value="0"></td>
-                        <td><input type="number" name="Homerun_2" value="0"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="text" name="name_3" value="0"></td>
-                        <td><input type="number" name="PA_3" value="0"></td>
-                        <td><input type="number" name="AB_3" value="0"></td>
-                        <td><input type="number" name="Hit_3" value="0"></td>
-                        <td><input type="number" name="GO_3" value="0"></td>
-                        <td><input type="number" name="FO_3" value="0"></td>
-                        <td><input type="number" name="StrikeOut_3" value="0"></td>
-                        <td><input type="number" name="BaseOnBalls_3" value="0"></td>
-                        <td><input type="number" name="RBI_3" value="0"></td>
-                        <td><input type="number" name="Single_3" value="0"></td>
-                        <td><input type="number" name="Double_3" value="0"></td>
-                        <td><input type="number" name="Triple_3" value="0"></td>
-                        <td><input type="number" name="Homerun_3" value="0"></td>
-                    </tr>
+                    {% endfor %}
+
                 </tbody>
             </table>
 

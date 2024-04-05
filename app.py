@@ -5,6 +5,9 @@ from sheet import DataProcessing
 app = Flask(__name__)
 
 
+dp = DataProcessing()
+
+
 @app.route("/")
 def index():
     return redirect("/pitcher")
@@ -12,12 +15,15 @@ def index():
 
 @app.route("/pitcher")
 def pitcher():
-    return render_template("pitcher.html")
+    global dp
+    user_list = dp.get_users()
+    return render_template("pitcher.html", user_list=user_list)
 
 
 @app.route("/batter")
 def batter():
-    return render_template("batter.html")
+    user_list = dp.get_users()
+    return render_template("batter.html", user_list=user_list)
 
 
 @app.route("/submit", methods=["POST"])
