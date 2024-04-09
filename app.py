@@ -13,26 +13,36 @@ def index():
     return redirect("/pitcher")
 
 
-@app.route("/pitcher")
+@app.route("/pitcher", methods=["POST", "GET"])
 def pitcher():
     global dp
+    home = request.values.get("home", default=1)
+    away = request.values.get("away", default=1)
     user_list = dp.get_users()
-    return render_template("pitcher.html", user_list=user_list)
+    return render_template(
+        "pitcher.html", user_list=user_list, home=int(home), away=int(away)
+    )
 
 
-@app.route("/batter")
+@app.route("/batter", methods=["POST", "GET"])
 def batter():
+    global dp
+    home = request.values.get("home", default=1)
+    away = request.values.get("away", default=1)
     user_list = dp.get_users()
-    return render_template("batter.html", user_list=user_list)
+    return render_template(
+        "batter.html", user_list=user_list, home=int(home), away=int(away)
+    )
 
 
 @app.route("/submit", methods=["POST"])
 def update():
     form_data = request.form
     typee = request.headers.get("Referer").split("/")[-1]
+    number = request.values.get("total", default=2)
     data_dict = {}
     dp = DataProcessing()
-    for i in range(1, 4):
+    for i in range(1, number + 1):
         if typee == "pitcher":
             data_dict = {
                 "名字": form_data.get(f"name_{i}"),
@@ -65,6 +75,11 @@ def update():
             }
         dp.update(data_dict, typee)
     return "<h2>Success</h2> <a href='/'>Back</a>"
+
+
+@app.errorhandler(500)
+def internal_server_error(error):
+    return render_template("500.html", error=error), 500
 
 
 if __name__ == "__main__":
