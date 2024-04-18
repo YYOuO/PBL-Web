@@ -32,53 +32,117 @@
             </div>
         </div>
     </nav>
-
-    <h1>Pitcher</h1>
-    <form id="inputForm" method="POST" action="/submit">
-        <table class="table table-secondary table-striped table-hover">
-            <thead>
-                <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Innings</th>
-                    <th scope="col">Run</th>
-                    <th scope="col">Hit</th>
-                    <th scope="col">HomeRun</th>
-                    <th scope="col">Strike Out</th>
-                    <th scope="col">Base On Balls</th>
-                    <th scope="col">Win</th>
-                    <th scope="col">Lose</th>
-                    <th scope="col">Hold</th>
-                    <th scope="col">Save</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for a in range(1,4) %}
-                <tr>
-                    <td><select id="userSelect" name="name_{{a}}">
-                            {% for user in user_list %}
-                            <option value="{{ user }}">{{ user }}</option>
-                            {% endfor %}
-                        </select>
-                    </td>
-                    <td><input type="number" name="Innings_{{a}}" value="0"></td>
-                    <td><input type="number" name="Run_{{a}}" value="0"></td>
-                    <td><input type="number" name="Hit_{{a}}" value="0"></td>
-                    <td><input type="number" name="HomeRun_{{a}}" value="0"></td>
-                    <td><input type="number" name="StrikeOut_{{a}}" value="0"></td>
-                    <td><input type="number" name="BaseOnBalls_{{a}}" value="0"></td>
-                    <td><input type="number" name="Win_{{a}}" value="0"></td>
-                    <td><input type="number" name="Lose_{{a}}" value="0"></td>
-                    <td><input type="number" name="Hold_{{a}}" value="0"></td>
-                    <td><input type="number" name="Save_{{a}}" value="0"></td>
-                </tr>
+    <div style="width: 500px;">
+        <form id="members" method="POST" action="/pitcher">
+            <label>Home</label>
+            <select id="userSelect" name="home">
+                {% for a in range(1,6) %}
+                <option value="{{a}}">{{ a }}</option>
                 {% endfor %}
+            </select>
+            <label>Away</label>
+            <select id="userSelect" name="away">
+                {% for a in range(1,6) %}
+                <option value="{{a}}">{{ a }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit" class="btn btn-primary">Set numbers</button>
+        </form>
+        <h1>Pitcher</h1>
+        <form id="inputForm" method="POST" action="/submit">
+            <h3>Home</h3>
+            <table class="table table-primary table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Innings</th>
+                        <th scope="col">Run</th>
+                        <th scope="col">Hit</th>
+                        <th scope="col">HomeRun</th>
+                        <th scope="col">Strike Out</th>
+                        <th scope="col">Base On Balls</th>
+                        <th scope="col">Win</th>
+                        <th scope="col">Lose</th>
+                        <th scope="col">Hold</th>
+                        <th scope="col">Save</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for a in range(away+1,away+1+home) %}
+                    <tr>
+                        <td><select id="userSelect" name="name_{{a}}">
+                                {% for user in user_list %}
+                                <option value="{{ user }}">{{ user }}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                        <td><input type="number" class="input" name="Innings_{{a}}" value="0"></td>
+                        <td><input type="number" class="input" name="Run_{{a}}" value="0"></td>
+                        <td><input type="number" class="input" name="Hit_{{a}}" value="0"></td>
+                        <td><input type="number" class="input" name="HomeRun_{{a}}" value="0"></td>
+                        <td><input type="number" class="input" name="StrikeOut_{{a}}" value="0"></td>
+                        <td><input type="number" class="input" name="BaseOnBalls_{{a}}" value="0"></td>
+                        <td><input type="number" class="input" name="Win_{{a}}" value="0"></td>
+                        <td><input type="number" class="input" name="Lose_{{a}}" value="0"></td>
+                        <td><input type="number" class="input" name="Hold_{{a}}" value="0"></td>
+                        <td><input type="number" class="input" name="Save_{{a}}" value="0"></td>
+                    </tr>
+                    {% endfor %}
 
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+            <h3>Away</h3>
+            <table class="table table-secondary table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Innings</th>
+                        <th scope="col">Run</th>
+                        <th scope="col">Hit</th>
+                        <th scope="col">HomeRun</th>
+                        <th scope="col">Strike Out</th>
+                        <th scope="col">Base On Balls</th>
+                        <th scope="col">Win</th>
+                        <th scope="col">Lose</th>
+                        <th scope="col">Hold</th>
+                        <th scope="col">Save</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for a in range(1,away+1) %}
+                    <tr>
+                        <td><select id="userSelect" name="name_{{a}}">
+                                {% for user in user_list %}
+                                <option value="{{ user }}">{{ user }}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                        <td><input type="number" class="input" name="Innings_{{a}}" value="0"></td>
+                        <td><input type="number" class="input" name="Run_{{a}}" value="0"></td>
+                        <td><input type="number" class="input" name="Hit_{{a}}" value="0"></td>
+                        <td><input type="number" class="input" name="HomeRun_{{a}}" value="0"></td>
+                        <td><input type="number" class="input" name="StrikeOut_{{a}}" value="0"></td>
+                        <td><input type="number" class="input" name="BaseOnBalls_{{a}}" value="0"></td>
+                        <td><input type="number" class="input" name="Win_{{a}}" value="0"></td>
+                        <td><input type="number" class="input" name="Lose_{{a}}" value="0"></td>
+                        <td><input type="number" class="input" name="Hold_{{a}}" value="0"></td>
+                        <td><input type="number" class="input" name="Save_{{a}}" value="0"></td>
+                    </tr>
+                    {% endfor %}
 
-        <button type="submit" class="btn btn-primary">Light</button>
-    </form>
+                </tbody>
+            </table>
+            <input type="hidden" value="{{away+home}}">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
 
 </body>
+<style>
+    .input {
+        width: 50px;
+        font-size: small;
+    }
+</style>
 
 </html>

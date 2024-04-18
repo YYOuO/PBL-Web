@@ -6,10 +6,8 @@ class DataProcessing:
     def __init__(self):
         self.url = "https://docs.google.com/spreadsheets/d/1JLw1k_IuHSJHRqAhb1iGBz71NolPH_Z24BoRMCqqlVE/"
         gc = pygsheets.authorize(service_account_file="./auth.json")
-        sheet = gc.open_by_url(
-            "https://docs.google.com/spreadsheets/d/1JLw1k_IuHSJHRqAhb1iGBz71NolPH_Z24BoRMCqqlVE/"
-        )
-        self.worksheet = sheet.worksheet_by_title("借我用一下")
+        sheet = gc.open_by_url(self.url)
+        self.worksheet = sheet.worksheet_by_title("4月（季後賽）")
         self.df_batter = (
             pd.DataFrame(
                 self.worksheet.range("A1:M11", returnas="matrix")[1:],
@@ -20,8 +18,8 @@ class DataProcessing:
         )
         self.df_pitcher = (
             pd.DataFrame(
-                self.worksheet.range("A13:K23", returnas="matrix")[1:],
-                columns=self.worksheet.range("A13:K23", returnas="matrix")[0],
+                self.worksheet.range("W1:AG11", returnas="matrix")[1:],
+                columns=self.worksheet.range("W1:AG11", returnas="matrix")[0],
             )
             .fillna(0)
             .replace("", 0)
@@ -40,7 +38,7 @@ class DataProcessing:
         if typee == "batter":
             self.worksheet.set_dataframe(dfff, "A1")
         elif typee == "pitcher":
-            self.worksheet.set_dataframe(dfff, "A13")
+            self.worksheet.set_dataframe(dfff, "W1")
 
     def get_users(self):
         user_list = self.df_pitcher["名字"].to_list()
