@@ -39,7 +39,7 @@ def batter():
 def update():
     form_data = request.form
     typee = request.headers.get("Referer").split("/")[-1]
-    number = request.values.get("total", default=2)
+    number = int(form_data.get("total", default=2))
     data_dict = {}
     dp = DataProcessing()
     for i in range(1, number + 1):
@@ -58,11 +58,24 @@ def update():
                 "救援成功": int(form_data.get(f"Save_{i}")),
             }
         elif typee == "batter":
+            HIT = (
+                int(form_data.get(f"Single_{i}"))
+                + int(form_data.get(f"Double_{i}"))
+                + int(form_data.get(f"Triple_{i}"))
+                + int(form_data.get(f"Homerun_{i}"))
+            )
+            AB = (
+                HIT
+                + +int(form_data.get(f"StrikeOut_{i}"))
+                + int(form_data.get(f"GO_{i}"))
+                + int(form_data.get(f"FO_{i}"))
+            )
+            PA = AB + int(form_data.get(f"BaseOnBalls_{i}"))
             data_dict = {
                 "名字": form_data.get(f"name_{i}"),
-                "打席": int(form_data.get(f"PA_{i}")),
-                "打數": int(form_data.get(f"AB_{i}")),
-                "安打": int(form_data.get(f"Hit_{i}")),
+                "打席": PA,
+                "打數": AB,
+                "安打": HIT,
                 "滾地出局": int(form_data.get(f"GO_{i}")),
                 "飛球出局": int(form_data.get(f"FO_{i}")),
                 "被三振": int(form_data.get(f"StrikeOut_{i}")),
@@ -74,7 +87,7 @@ def update():
                 "全壘打": int(form_data.get(f"Homerun_{i}")),
             }
         dp.update(data_dict, typee)
-    return "<h2>Success</h2> <a href='/'>Back</a>"
+    return f"<h2>Success</h2> <a href='/{typee}'>Back</a> update:{number}"
 
 
 @app.errorhandler(500)

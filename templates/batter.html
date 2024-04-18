@@ -31,7 +31,7 @@
             </div>
         </div>
     </nav>
-    <div style="width: 500px">
+    <div style="width: 500px;">
         <form id="members" method="POST" action="/batter">
             <label>Home</label>
             <select id="userSelect" name="home">
@@ -47,6 +47,7 @@
             </select>
             <button type="submit" class="btn btn-primary">Set numbers</button>
         </form>
+
         <h1>Batter</h1>
         <form id="inputForm" method="POST" action="/submit">
             <h3>Home</h3>
@@ -70,7 +71,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for a in range(away+1,away+1+home) %}
+                    {% for a in range(1,1+home) %}
                     <tr>
                         <td><select id="userSelect" name="name_{{a}}">
                                 {% for user in user_list %}
@@ -78,9 +79,9 @@
                                 {% endfor %}
                             </select>
                         </td>
-                        <td><input type="number" class="input" name="PA_{{a}}" value="0"></td>
-                        <td><input type="number" class="input" name="AB_{{a}}" value="0"></td>
-                        <td><input type="number" class="input" name="Hit_{{a}}" value="0"></td>
+                        <td>Auto Filled</td>
+                        <td>Auto Filled</td>
+                        <td>Auto Filled</td>
                         <td><input type="number" class="input" name="GO_{{a}}" value="0"></td>
                         <td><input type="number" class="input" name="FO_{{a}}" value="0"></td>
                         <td><input type="number" class="input" name="StrikeOut_{{a}}" value="0"></td>
@@ -116,7 +117,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for a in range(1,away+1) %}
+                    {% for a in range(1+home,away+1+home) %}
                     <tr>
                         <td><select id="userSelect" name="name_{{a}}">
                                 {% for user in user_list %}
@@ -124,9 +125,9 @@
                                 {% endfor %}
                             </select>
                         </td>
-                        <td><input type="number" class="input" name="PA_{{a}}" value="0"></td>
-                        <td><input type="number" class="input" name="AB_{{a}}" value="0"></td>
-                        <td><input type="number" class="input" name="Hit_{{a}}" value="0"></td>
+                        <td>Auto Filled</td>
+                        <td>Auto Filled</td>
+                        <td>Auto Filled</td>
                         <td><input type="number" class="input" name="GO_{{a}}" value="0"></td>
                         <td><input type="number" class="input" name="FO_{{a}}" value="0"></td>
                         <td><input type="number" class="input" name="StrikeOut_{{a}}" value="0"></td>
@@ -141,8 +142,8 @@
 
                 </tbody>
             </table>
-            <input type="hidden" value="{{away+home}}">
-            <button type="submit" class="btn btn-primary">Light</button>
+            <input type="hidden" value="{{away+home}}" name="total">
+            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
 </body>

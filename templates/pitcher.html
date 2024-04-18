@@ -68,7 +68,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for a in range(away+1,away+1+home) %}
+                    {% for a in range(1,1+home) %}
                     <tr>
                         <td><select id="userSelect" name="name_{{a}}">
                                 {% for user in user_list %}
@@ -76,7 +76,7 @@
                                 {% endfor %}
                             </select>
                         </td>
-                        <td><input type="number" class="input" name="Innings_{{a}}" value="0"></td>
+                        <td><input type="number" class="input" name="Innings_{{a}}" value="0" step="0.01"></td>
                         <td><input type="number" class="input" name="Run_{{a}}" value="0"></td>
                         <td><input type="number" class="input" name="Hit_{{a}}" value="0"></td>
                         <td><input type="number" class="input" name="HomeRun_{{a}}" value="0"></td>
@@ -109,7 +109,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for a in range(1,away+1) %}
+                    {% for a in range(1+home,home+away+1) %}
                     <tr>
                         <td><select id="userSelect" name="name_{{a}}">
                                 {% for user in user_list %}
@@ -117,7 +117,7 @@
                                 {% endfor %}
                             </select>
                         </td>
-                        <td><input type="number" class="input" name="Innings_{{a}}" value="0"></td>
+                        <td><input type="number" class="input" name="Innings_{{a}}" value="0" step="0.01"></td>
                         <td><input type="number" class="input" name="Run_{{a}}" value="0"></td>
                         <td><input type="number" class="input" name="Hit_{{a}}" value="0"></td>
                         <td><input type="number" class="input" name="HomeRun_{{a}}" value="0"></td>
@@ -132,7 +132,7 @@
 
                 </tbody>
             </table>
-            <input type="hidden" value="{{away+home}}">
+            <input type="hidden" value="{{away+home}}" name="total">
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
