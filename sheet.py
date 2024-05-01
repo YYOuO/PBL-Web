@@ -7,19 +7,19 @@ class DataProcessing:
         self.url = "https://docs.google.com/spreadsheets/d/1JLw1k_IuHSJHRqAhb1iGBz71NolPH_Z24BoRMCqqlVE/"
         gc = pygsheets.authorize(service_account_file="./auth.json")
         sheet = gc.open_by_url(self.url)
-        self.worksheet = sheet.worksheet_by_title("4月（季後賽）")
+        self.worksheet = sheet.worksheet_by_title("5月")
         self.df_batter = (
             pd.DataFrame(
-                self.worksheet.range("A1:M11", returnas="matrix")[1:],
-                columns=self.worksheet.range("A1:M11", returnas="matrix")[0],
+                self.worksheet.range("A1:M12", returnas="matrix")[1:],
+                columns=self.worksheet.range("A1:M12", returnas="matrix")[0],
             )
             .fillna(0)
             .replace("", 0)
         )
         self.df_pitcher = (
             pd.DataFrame(
-                self.worksheet.range("W1:AG11", returnas="matrix")[1:],
-                columns=self.worksheet.range("W1:AG11", returnas="matrix")[0],
+                self.worksheet.range("W1:AG12", returnas="matrix")[1:],
+                columns=self.worksheet.range("W1:AG12", returnas="matrix")[0],
             )
             .fillna(0)
             .replace("", 0)

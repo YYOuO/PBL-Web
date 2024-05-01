@@ -46,7 +46,7 @@ def update():
         if typee == "pitcher":
             data_dict = {
                 "名字": form_data.get(f"name_{i}"),
-                "局數": int(form_data.get(f"Innings_{i}")),
+                "局數": float(form_data.get(f"Innings_{i}")),
                 "失分": int(form_data.get(f"Run_{i}")),
                 "被安打": int(form_data.get(f"Hit_{i}")),
                 "被全壘打": int(form_data.get(f"HomeRun_{i}")),
