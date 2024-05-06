@@ -52,11 +52,57 @@ def update():
                 "被全壘打": int(form_data.get(f"HomeRun_{i}")),
                 "三振": int(form_data.get(f"StrikeOut_{i}")),
                 "四死": int(form_data.get(f"BaseOnBalls_{i}")),
-                "勝": int(form_data.get(f"Win_{i}")),
-                "敗": int(form_data.get(f"Lose_{i}")),
-                "中繼成功": int(form_data.get(f"Hold_{i}")),
-                "救援成功": int(form_data.get(f"Save_{i}")),
+                # "勝": int(form_data.get(f"Win_{i}")),
+                # "敗": int(form_data.get(f"Lose_{i}")),
+                # "中繼成功": int(form_data.get(f"Hold_{i}")),
+                # "救援成功": int(form_data.get(f"Save_{i}")),
             }
+            status = str(form_data.get(f"status_{i}"))
+            if status == "Win":
+                data_dict.update(
+                    {
+                        "勝": 1,
+                        "敗": 0,
+                        "中繼成功": 0,
+                        "救援成功": 0,
+                    }
+                )
+            elif status == "Lose":
+                data_dict.update(
+                    {
+                        "勝": 0,
+                        "敗": 1,
+                        "中繼成功": 0,
+                        "救援成功": 0,
+                    }
+                )
+            elif status == "Hold":
+                data_dict.update(
+                    {
+                        "勝": 0,
+                        "敗": 0,
+                        "中繼成功": 1,
+                        "救援成功": 0,
+                    }
+                )
+            elif status == "Save":
+                data_dict.update(
+                    {
+                        "勝": 0,
+                        "敗": 0,
+                        "中繼成功": 0,
+                        "救援成功": 1,
+                    }
+                )
+            else:
+                data_dict.update(
+                    {
+                        "勝": 0,
+                        "敗": 0,
+                        "中繼成功": 0,
+                        "救援成功": 0,
+                    }
+                )
         elif typee == "batter":
             HIT = (
                 int(form_data.get(f"Single_{i}"))

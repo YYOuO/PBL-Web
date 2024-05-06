@@ -32,6 +32,7 @@ class DataProcessing:
         name = data["名字"]
         dfff = self.df_list[typee]
         index = dfff.index[dfff["名字"] == name]
+        dfff["局數"] = dfff["局數"].astype(float)
         dfff.iloc[index] += pd.Series(data)
         dfff.loc[index, "名字"] = data["名字"]
         print(dfff.iloc[index])
